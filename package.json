@@ -1,0 +1,24 @@
+{
+  "name": "mongoose-nconf-connect",
+  "version": "1.0.0",
+  "description": "A simple way to connect mongoose using a standard layout in nconf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonecircle/mongoose-nconf-connect.git"
+  },
+  "keywords": [
+    "mongoose",
+    "nconf",
+    "db"
+  ],
+  "author": "Chris Manson <chris@stonecircle.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stonecircle/mongoose-nconf-connect/issues"
+  },
+  "homepage": "https://github.com/stonecircle/mongoose-nconf-connect#readme"
+}
