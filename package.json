@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/stonecircle/mongoose-nconf-connect/issues"
   },
-  "homepage": "https://github.com/stonecircle/mongoose-nconf-connect#readme"
+  "homepage": "https://github.com/stonecircle/mongoose-nconf-connect#readme",
+  "dependencies": {
+    "q": "^1.4.1"
+  }
 }
