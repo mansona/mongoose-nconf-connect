@@ -1,6 +1,6 @@
 {
   "name": "mongoose-nconf-connect",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A simple way to connect mongoose using a standard layout in nconf",
   "main": "index.js",
   "scripts": {
