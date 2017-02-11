@@ -35,6 +35,7 @@ The default config layout is like this:
         "db": "mySuperDatabase",
         "host": "localhost",
         "port": 27017
+    }
 }    
 ```
 

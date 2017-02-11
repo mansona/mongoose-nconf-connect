@@ -4,7 +4,9 @@
   "description": "A simple way to connect mongoose using a standard layout in nconf",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha --recursive --reporter spec",
+    "test-watch": "npm run test -- -w --reporter min",
+    "coverage": "NODE_ENV=test istanbul cover _mocha -- -R spec --recursive"
   },
   "repository": {
     "type": "git",
@@ -25,10 +27,19 @@
     "q": "^1.4.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.3.3",
     "eslint": "^3.3.1",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.13.0",
     "eslint-plugin-jsx-a11y": "^2.1.0",
-    "eslint-plugin-react": "^6.1.1"
+    "eslint-plugin-react": "^6.1.1",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "mongoose": "^4.8.2",
+    "nconf": "^0.8.4",
+    "sinon": "^1.17.5",
+    "supertest": "^2.0.0",
+    "timekeeper": "^0.1.1"
   }
 }
