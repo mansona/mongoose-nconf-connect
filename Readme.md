@@ -1,4 +1,4 @@
-# Mongoose NConf Connect
+# Mongoose NConf Connect [![Build Status](https://travis-ci.org/stonecircle/mongoose-nconf-connect.svg?branch=master)](https://travis-ci.org/stonecircle/mongoose-nconf-connect)
 
 This is a very simple module that takes [mongoose](https://www.npmjs.com/package/mongoose) and [nconf](https://www.npmjs.com/package/nconf) and builds you a connection with config that is laid out in a *"standard"* way.
 
