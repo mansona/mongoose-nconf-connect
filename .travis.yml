@@ -1,7 +1,27 @@
 sudo: false
-services: mongodb
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=10b9656661636705b2178b46ff989ee04622de2ecda3a9af1af754e26edcdc2f
+
 language: node_js
+services: mongodb
+
+branches:
+  only:
+    - master
+
 node_js:
-  - '4'
-  - '6'
-  - '7'
+  - 8
+  - 6
+  - 4
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script: npm run coverage
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
