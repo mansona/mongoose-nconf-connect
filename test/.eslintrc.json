@@ -8,7 +8,6 @@
       "rootRequire": true
     },
 
-    "extends": "airbnb",
     "rules": {
       "func-names": [0],
       "import/no-extraneous-dependencies": [0],
