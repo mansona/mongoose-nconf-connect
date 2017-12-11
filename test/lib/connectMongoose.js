@@ -1,6 +1,7 @@
 const nconf = require('nconf');
 const mongoose = require('mongoose');
 const Q = require('q');
+const sinon = require('sinon');
 
 const mongooseConnect = require('../../');
 
@@ -34,6 +35,42 @@ describe('connect mongoose', () => {
       return Q.ninvoke(faces, 'find').then(() => {
         console.log('¯\\_(ツ)_/¯');
       });
+    });
+  });
+
+  it('can connect with sync methods', () => {
+    nconf.set('mongo', {
+      db: 'mySuperDatabase',
+      hosts: ['localhost'],
+      port: 27017,
+    });
+    const connection = mongooseConnect.connectNewMongoSync(nconf, mongoose)
+    const faces = connection.collection('faces');
+    return Q.ninvoke(faces, 'find').then(() => {
+      console.log('¯\\_(ツ)_/¯');
+    });
+  });
+
+  it.skip('obscures the username@password from connection log', () => {
+    nconf.set('mongo', {
+      db: 'mySuperDatabase',
+      hosts: ['localhost'],
+      port: 27017,
+      user: 'superface',
+      password: 'superpassword',
+    });
+
+    const infoStub = sinon.stub();
+
+    const connection = mongooseConnect.connectNewMongoSync(nconf, mongoose, {
+      logger: {
+        info: infoStub,
+        error: console.error,
+      },
+    });
+    const faces = connection.collection('faces');
+    return Q.ninvoke(faces, 'find').then(() => {
+      sinon.assert.calledWith(infoStub, 'Mongoose connected', 'mongodb://<username_redacted>:<password_redacted>@localhost:27017/mySuperDatabase');
     });
   });
 });
